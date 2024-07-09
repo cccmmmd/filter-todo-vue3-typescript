@@ -1,15 +1,14 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import Categoty from "./types/Note";
 
 export default defineComponent({
   name: "CreateNote",
   emits: ["add-note"],
 
-  setup(_,{ emit }) {
+  setup(_, { emit }) {
     const title = ref<string>("");
     const content = ref<string>("");
-    const category = ref<Categoty>("");
+    const category = ref<string>("");
 
     const submitForm = (): void => {
       const newNote = {

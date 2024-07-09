@@ -19,11 +19,10 @@ export default defineComponent({
       notes.splice(findIndex, 1);
     };
     const filterNotes = (c: String) => {
-      category.value = c 
+      category.value = c;
     };
     const shownotes = computed(() => {
-      if(category.value === 'All')
-        return notes
+      if (category.value === "All") return notes;
       else {
         return notes.filter((n: Note) => {
           return n.category === category.value;
@@ -41,12 +40,32 @@ export default defineComponent({
     </header>
     <hr />
     <div class="filter">
-        <button @click="filterNotes('All')" :class="category === 'All'? 'active': ''">All</button>
-        <button @click="filterNotes('private')" :class="category === 'private'? 'active': ''">private</button>
-        <button @click="filterNotes('work')" :class="category === 'work'? 'active': ''">work</button>
-        <button @click="filterNotes('family')" :class="category === 'family'? 'active': ''">family</button>
+      <button
+        @click="filterNotes('All')"
+        :class="category === 'All' ? 'active' : ''"
+      >
+        All
+      </button>
+      <button
+        @click="filterNotes('private')"
+        :class="category === 'private' ? 'active' : ''"
+      >
+        private
+      </button>
+      <button
+        @click="filterNotes('work')"
+        :class="category === 'work' ? 'active' : ''"
+      >
+        work
+      </button>
+      <button
+        @click="filterNotes('family')"
+        :class="category === 'family' ? 'active' : ''"
+      >
+        family
+      </button>
     </div>
-    <NoteList :notes="shownotes" @delete-note="deleteNote"/>
+    <NoteList :notes="shownotes" @delete-note="deleteNote" />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { PropType, defineComponent } from "vue";
-import Note from "../types/Note";
+import { Note } from "../types/Note";
 
 export default defineComponent({
   name: "NoteList",
@@ -11,9 +11,9 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(_,{ emit }) {
-    const deleteNote = (id:number): void => {
-      emit('delete-note', id);
+  setup(_, { emit }) {
+    const deleteNote = (id: PropertyKey): void => {
+      emit("delete-note", id);
     };
     return { deleteNote };
   },
@@ -43,7 +43,7 @@ export default defineComponent({
       </li>
     </ul>
     <ul v-else>
-      <li> no data</li>
+      <li>no data</li>
     </ul>
   </div>
 </template>

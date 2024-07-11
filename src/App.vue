@@ -24,9 +24,7 @@ export default defineComponent({
     const shownotes = computed(() => {
       if (category.value === "All") return notes;
       else {
-        return notes.filter((n: Note) => {
-          return n.category === category.value;
-        });
+        return notes.filter((n: Note) => n.category === category.value );
       }
     });
     return { category, addNote, deleteNote, filterNotes, shownotes };
